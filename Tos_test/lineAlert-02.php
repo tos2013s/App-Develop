@@ -33,11 +33,11 @@ foreach ($_POST as $key => $value)
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
-if(isset($_POST['incidentDetails']))
+/*if(isset($_POST['incidentDetails']))
 {
    $from_service = 'Responce from server:  ' . $_POST['incidentDetails'];
-}
-$sMessage .= $from_service;
+}*/
+$sMessage .= $_POST['incidentDetails'];
 
 	
 	$chOne = curl_init(); 
