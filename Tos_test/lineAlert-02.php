@@ -11,26 +11,9 @@ header('Access-Control-Allow-Headers: Content-Type');
 	$sToken = "Xc5gLo8IFM4b1t5GQII2oakRvEzxveFzsVUBr7iYrjj"; // develop alone
 	$sMessage ="swan industries\r\n";
 
-if (!function_exists('apache_request_headers')) {
-        function apache_request_headers() {
-            foreach($_SERVER as $key=>$value) {
-                if (substr($key,0,5)=="HTTP_") {
-                    $key=str_replace(" ","-",ucwords(strtolower(str_replace("_"," ",substr($key,5)))));
-                    $out[$key]=$value;
-                }else{
-                    $out[$key]=$value;
-        }
-            }
-            return $out;
-        }
-	$sMessage .= apache_request_headers();
-}
-//$id = $this->getRequest()->getParam("message",'');
-/*$_SERVER['REQUEST_URI_PATH'] = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$pathSegments = explode('/', $_SERVER['REQUEST_URI_PATH']);*/
-//$postdata = file_get_contents("php://input");
-//$body = print_r($_POST, true);
-/*$requestHeaders = apache_request_headers();*/
+
+
+
 foreach ($_SERVER as $key => $value) {
     if (strpos($key, 'HTTP_') === 0) {
         $chunks = explode('_', $key);
