@@ -107,7 +107,7 @@ $http_request = new http_request();
 $resp = $http_request->raw();
 
 //echo nl2br($resp);
-$sMessage .= nl2br($resp);
+$sMessage .= $resp;
 	
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
