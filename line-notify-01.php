@@ -1,12 +1,24 @@
 <?php
 
 $accToken = "UwJJvP1lFFwR4AIOg89RaeMMy440L8UbioXZ6c1QJu1";
+$sMessage ="OFS Alert:\r\n";
 
-$jsonALL = file_get_contents("https://covid19.th-stat.com/api/open/today");
+/*$jsonALL = file_get_contents("https://covid19.th-stat.com/api/open/today");
 $jsonz = preg_replace('/\r|\n/','\n',trim($jsonALL));
 $jsonData = json_decode($jsonz, TRUE);
+$sMessage .=json_encode($jsonData, JSON_PRETTY_PRINT);*/
 
-$sMessage .=json_encode($jsonData, JSON_PRETTY_PRINT);
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+  $WebParameter .= "REQUEST_METHOD POST \r\n"; // เข้าเงื่อนไข  post
+  $WebParameter .= $_POST['message'];
+}
+else if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+  $WebParameter .= "GET";//$_GET['message'];  
+}
+else{
+  $WebParameter .= ' no REQUEST_METHOD..GET / POST';
+}
+
 
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
