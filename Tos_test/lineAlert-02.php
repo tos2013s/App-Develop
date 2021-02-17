@@ -30,8 +30,23 @@ header('Access-Control-Allow-Headers: Content-Type');
 $pathSegments = explode('/', $_SERVER['REQUEST_URI_PATH']);*/
 //$postdata = file_get_contents("php://input");
 //$body = print_r($_POST, true);
-$requestHeaders = apache_request_headers();
-$sMessage .= $requestHeaders; //print_r($_REQUEST);
+/*$requestHeaders = apache_request_headers();*/
+foreach ($_SERVER as $key => $value) {
+    if (strpos($key, 'HTTP_') === 0) {
+        $chunks = explode('_', $key);
+        $header = '';
+        for ($i = 1; $y = sizeof($chunks) - 1, $i < $y; $i++) {
+            $header .= ucfirst(strtolower($chunks[$i])).'-';
+        }
+        $header .= ucfirst(strtolower($chunks[$i])).': '.$value;
+        echo $header."\n";
+    }
+}
+$body = file_get_contents('php://input');
+if ($body != '') {
+  print("\n$body\n\n");
+}
+$sMessage .= $header //print_r($_REQUEST);
 
 	
 	$chOne = curl_init(); 
