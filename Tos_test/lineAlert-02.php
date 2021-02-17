@@ -46,7 +46,7 @@ $body = file_get_contents('php://input');
 if ($body != '') {
   print("\n$body\n\n");
 }
-$sMessage .= $header //print_r($_REQUEST);
+$sMessage .= $header; //print_r($_REQUEST);
 
 	
 	$chOne = curl_init(); 
