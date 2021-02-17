@@ -21,7 +21,7 @@ else if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 else{
   $WebParameter .= ' no REQUEST_METHOD..GET / POST';
 }
-
+$sMessage .= $WebParameter;
 
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
