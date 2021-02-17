@@ -8,7 +8,7 @@
 	$sMessage .="swan industries\r\n";
 	//$sMessage .= askForRequestedArguments();
 
-if (!function_exists('apache_request_headers')) {
+/*if (!function_exists('apache_request_headers')) {
         function apache_request_headers() {
             foreach($_SERVER as $key=>$value) {
                 if (substr($key,0,5)=="HTTP_") {
@@ -21,7 +21,7 @@ if (!function_exists('apache_request_headers')) {
             return $out;
         }
 	$sMessage .= apache_request_headers();
-}
+}*/
 $sMessage .= print_r($_SERVER) ;
 	
 	$chOne = curl_init(); 
