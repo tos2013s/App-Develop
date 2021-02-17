@@ -9,10 +9,19 @@
 	//$sMessage .= askForRequestedArguments();
 
 
-$rawdata = $HTTP_RAW_POST_DATA;
-// Or maybe we get XML
-$decoded = simplexml_load_string($rawdata);
-$sMessage .= $decoded ;
+function get_raw_http_request() {
+
+  $request = "{$_SERVER['REQUEST_METHOD']} {$_SERVER['REQUEST_URI']} {$_SERVER['SERVER_PROTOCOL']}\r\n";
+
+  foreach (getallheaders() as $name => $value) {
+    $request .= "$name: $value\r\n";
+  }
+
+  $request .= "\r\n" . file_get_contents('php://input');
+
+  return $request;
+}
+$sMessage .= get_raw_http_request() ;
 	
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
