@@ -29,7 +29,10 @@ $pathSegments = explode('/', $_SERVER['REQUEST_URI_PATH']);*/
 //$body = print_r($_POST, true);
 foreach ($_POST as $key => $value) 
     $body .= $key . ' -> ' . $value . '\n';
-$sMessage .= print_r($_POST);
+$parametera = $_POST['message'];
+$parameterb = $_POST['message_data'];
+$sMessage .= $parametera;
+$sMessage .= $parameterb;
 	
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
