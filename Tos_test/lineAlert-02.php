@@ -25,60 +25,15 @@ header('Access-Control-Allow-Headers: Content-Type');
         echo $header."\n";
     }
 }*/
-function getPostObject() {
-    $str = file_get_contents('php://input');
-    $std = json_decode($str);
-    if ($std === null) {
-        $std = new stdClass();
-        $array = explode('&', $str);
-        foreach ($array as $parm) {
-            $parts = explode('=', $parm);
-            if(sizeof($parts) != 2){
-                continue;
-            }
-            $key = $parts[0];
-            $value = $parts[1];
-            if ($key === NULL) {
-                continue;
-            }
-            if (is_string($key)) {
-                $key = urldecode($key);
-            } else {
-                continue;
-            }
-            if (is_bool($value)) {
-                $value = boolval($value);
-            } else if (is_numeric($value)) {
-                $value += 0;
-            } else if (is_string($value)) {
-                if (empty($value)) {
-                    $value = null;
-                } else {
-                    $lower = strtolower($value);
-                    if ($lower === 'true') {
-                        $value = true;
-                    } else if ($lower === 'false') {
-                        $value = false;
-                    } else if ($lower === 'null') {
-                        $value = null;
-                    } else {
-                        $value = urldecode($value);
-                    }
-                }
-            } else if (is_array($value)) {
-                // value is an array
-            } else if (is_object($value)) {
-                // value is an object
-            }
-            $std->$key = $value;
-        }
-        // length of post array
-        //$std->length = sizeof($array);
-    }
-    return $std;
+if($json = json_decode(file_get_contents("php://input"), true)) {
+    print_r($json);
+    $data = $json;
+} else {
+    print_r($_POST);
+    $data = $_POST;
 }
 
-$sMessage .= getPostObject(); //print_r($_REQUEST);
+$sMessage .= $data;
 
 	
 	$chOne = curl_init(); 
