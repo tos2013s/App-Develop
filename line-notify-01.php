@@ -29,6 +29,7 @@ $allHeaders = getallheaders();
 $contentType = $allHeaders['Content-Type'];
 
 $sMessage .=$contentType;
+$sMessage .="\r\n";
 $sMessage .= $WebParameter;
 
 	$chOne = curl_init(); 
