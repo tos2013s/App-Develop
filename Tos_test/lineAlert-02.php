@@ -25,8 +25,10 @@
 //$id = $this->getRequest()->getParam("message",'');
 /*$_SERVER['REQUEST_URI_PATH'] = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $pathSegments = explode('/', $_SERVER['REQUEST_URI_PATH']);*/
-$postdata = file_get_contents("php://input");
-$body = print_r($_POST, true);
+//$postdata = file_get_contents("php://input");
+//$body = print_r($_POST, true);
+foreach ($_POST as $key => $value) 
+    $body .= $key . ' -> ' . $value . '\n';
 $sMessage .= $body;
 	
 	$chOne = curl_init(); 
