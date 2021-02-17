@@ -7,7 +7,7 @@ $sMessage ="OFS Alert:\r\n";
 $jsonz = preg_replace('/\r|\n/','\n',trim($jsonALL));
 $jsonData = json_decode($jsonz, TRUE);
 $sMessage .=json_encode($jsonData, JSON_PRETTY_PRINT);*/
-
+$WebParameter ="";
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   $WebParameter .= "REQUEST_METHOD POST \r\n"; // เข้าเงื่อนไข  post
   //$WebParameter .= $_POST['message'];
