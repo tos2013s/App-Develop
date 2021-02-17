@@ -5,35 +5,33 @@
 </head>
 <body>
 <h1> hello html </h1>
-<script type="text/javascript">
-var express = require('express'),
-    bodyParser = require('body-parser'),
-    app = express(),
-    port = 3000;
+<script>
+var express = require('express');
+var request = require('request');
+var router = express.Router();
 
-app.use(bodyParser.json());
 
-app.post('/', function (req, res) {
-    var body = req.body;
-    var trackingNumber = body.msg.tracking_number;
-    var slug = body.msg.slug;
-    var token = 'UwJJvP1lFFwR4AIOg89RaeMMy440L8UbioXZ6c1QJu1'; //body.msg.unique_token;
+const request = require('request')
 
-    console.log(trackingNumber, slug, token);
-
-    res.json({
-        message: 'ok got it!'
-    });
-});
-
-var server = app.listen(port, function () {
-
-    var host = server.address().address
-    var port = server.address().port
-
-    console.log('Example app listening at http://%s:%s', host, port)
-
-});
+request({
+  method: 'POST',
+  uri: 'https://notify-api.line.me/api/notify',
+  header: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+  auth: {
+    bearer: 'UwJJvP1lFFwR4AIOg89RaeMMy440L8UbioXZ6c1QJu1', //token
+  },
+  form: {
+    message: 'ทดสอบ', //ข้อความที่จะส่ง
+  },
+}, (err, httpResponse, body) => {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log(body)
+  }
+})
 </script>
 </boby>
 </html>
