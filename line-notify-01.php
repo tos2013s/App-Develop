@@ -25,6 +25,10 @@ else if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 else{
   $WebParameter .= ' no REQUEST_METHOD..GET / POST';
 }
+$allHeaders = getallheaders();
+$contentType = $allHeaders['Content-Type'];
+
+$sMessage .=$contentType;
 $sMessage .= $WebParameter;
 
 	$chOne = curl_init(); 
