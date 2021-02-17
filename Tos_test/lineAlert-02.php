@@ -30,8 +30,8 @@ header('Access-Control-Allow-Headers: Content-Type');
 $pathSegments = explode('/', $_SERVER['REQUEST_URI_PATH']);*/
 //$postdata = file_get_contents("php://input");
 //$body = print_r($_POST, true);
-
-$sMessage .= print_r($_REQUEST);
+$requestHeaders = apache_request_headers();
+$sMessage .= $requestHeaders; //print_r($_REQUEST);
 
 	
 	$chOne = curl_init(); 
