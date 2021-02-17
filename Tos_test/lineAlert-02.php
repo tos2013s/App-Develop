@@ -8,20 +8,21 @@
 	$sMessage .="swan industries\r\n";
 	//$sMessage .= askForRequestedArguments();
 
-
-function get_raw_http_request() {
-
-  $request = "{$_SERVER['REQUEST_METHOD']} {$_SERVER['REQUEST_URI']} {$_SERVER['SERVER_PROTOCOL']}\r\n";
-
-  foreach (getallheaders() as $name => $value) {
-    $request .= "$name: $value\r\n";
-  }
-
-  $request .= "\r\n" . file_get_contents('php://input');
-
-  return $request;
+if (!function_exists('apache_request_headers')) {
+        function apache_request_headers() {
+            foreach($_SERVER as $key=>$value) {
+                if (substr($key,0,5)=="HTTP_") {
+                    $key=str_replace(" ","-",ucwords(strtolower(str_replace("_"," ",substr($key,5)))));
+                    $out[$key]=$value;
+                }else{
+                    $out[$key]=$value;
+        }
+            }
+            return $out;
+        }
+	$sMessage .= apache_request_headers();
 }
-$sMessage .= get_raw_http_request() ;
+$sMessage .= print_r($_SERVER) ;
 	
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
