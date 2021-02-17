@@ -8,11 +8,9 @@
 	$sToken = "Xc5gLo8IFM4b1t5GQII2oakRvEzxveFzsVUBr7iYrjj"; // develop alone
 	$sMessage .="swan industries\r\n";
 	//$sMessage .= askForRequestedArguments();
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_VERBOSE, 1);
-curl_setopt($ch, CURLOPT_HEADER, 1);
 
-$sMessage .= print_r($_POST);
+
+	$sMessage .= print_r($_POST);
 	
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
@@ -36,10 +34,5 @@ $sMessage .= print_r($_POST);
 		echo "meassage ok.";
 	} 
 	curl_close( $chOne );
-function askForRequestedArguments(){
-    $getArray = ($tmp = filter_input_array(INPUT_GET)) ? $tmp : Array();
-    $postArray = ($tmp = filter_input_array(INPUT_POST)) ? $tmp : Array();
-    $allRequests = array_merge($getArray, $postArray);
-    return $allRequests;
-}	
+	
 ?>
