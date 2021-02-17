@@ -34,13 +34,15 @@ header('Access-Control-Allow-Headers: Content-Type');
 }*/
 $raw_payload = file_get_contents('php://input', true);
 $payload = json_decode($raw_payload, true);
-
-if($payload){
+foreach ($payload as $value) {
+    $sMessage .= $value, "\n";
+}
+/*if($payload){
   $myfile = fopen("log.txt", "a+") or die("Unable to open file!");
   fwrite(date('Y-m-d H:i:s', time()).PHP_EOL);
   fclose($myfile);
-}
-//$sMessage .= $data;
+}*/
+
 
 	
 	$chOne = curl_init(); 
