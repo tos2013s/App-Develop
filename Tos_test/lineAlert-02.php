@@ -29,14 +29,16 @@ $pathSegments = explode('/', $_SERVER['REQUEST_URI_PATH']);*/
 //$body = print_r($_POST, true);
 foreach ($_POST as $key => $value) 
     $body .= $key . ' -> ' . $value . '\n';
-$parametera = $_POST['message'];
-$parameterb = $_POST['message_data'];
 
-$parameterc = $_GET['message'];
-$parameterd = $_GET['message_data'];
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+if(isset($_POST['incidentDetails']))
+{
+   $from_service = 'Responce from server:  ' . $_POST['incidentDetails'];
+}
+$sMessage .= $from_service;
 
-$sMessage .= $parameterc;
-$sMessage .= $parameterd;
 	
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
