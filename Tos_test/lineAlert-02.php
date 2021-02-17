@@ -25,15 +25,22 @@ header('Access-Control-Allow-Headers: Content-Type');
         echo $header."\n";
     }
 }*/
-if($json = json_decode(file_get_contents("php://input"), true)) {
+/*if($json = json_decode(file_get_contents("php://input"), true)) {
     print_r($json);
     $data = $json;
 } else {
     print_r($_POST);
     $data = $_POST;
-}
+}*/
+$raw_payload = file_get_contents('php://input', true);
+$payload = json_decode($raw_payload, true);
 
-$sMessage .= $data;
+if($payload){
+  $myfile = fopen("log.txt", "a+") or die("Unable to open file!");
+  fwrite(date('Y-m-d H:i:s', time()).PHP_EOL);
+  fclose($myfile);
+}
+//$sMessage .= $data;
 
 	
 	$chOne = curl_init(); 
