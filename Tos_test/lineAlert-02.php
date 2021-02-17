@@ -1,4 +1,8 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
@@ -6,7 +10,6 @@
 
 	$sToken = "Xc5gLo8IFM4b1t5GQII2oakRvEzxveFzsVUBr7iYrjj"; // develop alone
 	$sMessage .="swan industries\r\n";
-	//$sMessage .= askForRequestedArguments();
 
 /*if (!function_exists('apache_request_headers')) {
         function apache_request_headers() {
@@ -27,12 +30,7 @@
 $pathSegments = explode('/', $_SERVER['REQUEST_URI_PATH']);*/
 //$postdata = file_get_contents("php://input");
 //$body = print_r($_POST, true);
-foreach ($_POST as $key => $value) 
-    $body .= $key . ' -> ' . $value . '\n';
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
 /*if(isset($_POST['incidentDetails']))
 {
    $from_service = 'Responce from server:  ' . $_POST['incidentDetails'];
