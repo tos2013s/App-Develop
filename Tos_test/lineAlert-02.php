@@ -9,7 +9,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 	date_default_timezone_set("Asia/Bangkok");
 
 	$sToken = "Xc5gLo8IFM4b1t5GQII2oakRvEzxveFzsVUBr7iYrjj"; // develop alone
-	$sMessage .="swan industries\r\n";
+	$sMessage ="swan industries\r\n";
 
 /*if (!function_exists('apache_request_headers')) {
         function apache_request_headers() {
