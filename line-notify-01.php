@@ -10,7 +10,10 @@ $sMessage .=json_encode($jsonData, JSON_PRETTY_PRINT);*/
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   $WebParameter .= "REQUEST_METHOD POST \r\n"; // เข้าเงื่อนไข  post
-  $WebParameter .= $_POST['message'];
+  //$WebParameter .= $_POST['message'];
+  $dataPOST = trim(file_get_contents('php://input'));
+  $xmlData = simplexml_load_string($dataPOST);
+  $WebParameter .= $xmlData;
 }
 else if ($_SERVER['REQUEST_METHOD'] == 'GET'){
   $WebParameter .= "GET";//$_GET['message'];  
