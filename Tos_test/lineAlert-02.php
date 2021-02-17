@@ -22,7 +22,8 @@
         }
 	$sMessage .= apache_request_headers();
 }*/
-$sMessage .= print_r($_SERVER) ;
+$id = $this->getRequest()->getParam("message",'');
+$sMessage .= $id ;
 	
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
