@@ -31,11 +31,7 @@ $pathSegments = explode('/', $_SERVER['REQUEST_URI_PATH']);*/
 //$postdata = file_get_contents("php://input");
 //$body = print_r($_POST, true);
 
-/*if(isset($_POST['incidentDetails']))
-{
-   $from_service = 'Responce from server:  ' . $_POST['incidentDetails'];
-}*/
-$sMessage .= $_POST['incidentDetails'];
+$sMessage .= print_r($_REQUEST);
 
 	
 	$chOne = curl_init(); 
