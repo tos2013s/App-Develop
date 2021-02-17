@@ -12,10 +12,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_VERBOSE, 1);
 curl_setopt($ch, CURLOPT_HEADER, 1);
 
-$parts = explode("\r\n\r\nHTTP/", $response);
-$parts = (count($parts) > 1 ? 'HTTP/' : '').array_pop($parts);
-list($headers, $body) = explode("\r\n\r\n", $parts, 2);
-$sMessage .= list($headers, $body);
+$sMessage .= print_r($_POST);
 	
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
