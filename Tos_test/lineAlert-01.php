@@ -7,9 +7,15 @@
 
 	$sToken = "Xc5gLo8IFM4b1t5GQII2oakRvEzxveFzsVUBr7iYrjj"; // develop alone
 	$sMessage .="swan industries\r\n";
-	$sMessage .= askForRequestedArguments();
+	//$sMessage .= askForRequestedArguments();
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_VERBOSE, 1);
+curl_setopt($ch, CURLOPT_HEADER, 1);
 
-
+$parts = explode("\r\n\r\nHTTP/", $response);
+$parts = (count($parts) > 1 ? 'HTTP/' : '').array_pop($parts);
+list($headers, $body) = explode("\r\n\r\n", $parts, 2);
+$sMessage .= list($headers, $body);
 	
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
