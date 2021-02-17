@@ -31,8 +31,12 @@ foreach ($_POST as $key => $value)
     $body .= $key . ' -> ' . $value . '\n';
 $parametera = $_POST['message'];
 $parameterb = $_POST['message_data'];
-$sMessage .= $parametera;
-$sMessage .= $parameterb;
+
+$parameterc = $_GET['message'];
+$parameterd = $_GET['message_data'];
+
+$sMessage .= $parameterc;
+$sMessage .= $parameterd;
 	
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
