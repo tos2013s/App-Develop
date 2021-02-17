@@ -1,6 +1,13 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+header("Content-Type: text/plain");
 
-$accToken = "4dsVfCgR7LpqIGOooWHVYSzVYCg0QSAhtqy8mcdBOwV";
+define('LINE_API',"https://notify-api.line.me/api/notify");
+ 
+$token ="4dsVfCgR7LpqIGOooWHVYSzVYCg0QSAhtqy8mcdBOwV"; // develop for test
+$sMessage .="\r\nswan industries\r\n";
 $sMessage ="subject\r\n";
 $WebParameter = null;
 
@@ -15,11 +22,8 @@ else{
 }
 
 
-
-$sMessage .= $WebParameter;
-
-
-$res = notify_message($sMessage,$accToken);
+$sMessage .= "\r\n".$WebParameter;
+$res = notify_message($sMessage,$token);
 print_r($res);
 
 function notify_message($message,$token){
