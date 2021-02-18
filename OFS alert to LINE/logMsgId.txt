@@ -1,0 +1,13 @@
+OFS Alert service test.From: P01-PT907
+Time:2021-02-18 18:14:15 ICT
+Status:Downtime 0.00 hrs
+Product_Id:04.00: CC009312: F-52 SP-1: 7.5-8.5: 165/180/180 
+Product:1050671 RIDSECT FIK(SN357/3)600 ML.**อาบแล้ว**From: P01-PT907
+Time:2021-02-18 18:28:26 ICT
+Status:Downtime 0.00 hrs
+Product_Id:04.00: CC009312: F-52 SP-1: 7.5-8.5: 165/180/180 
+Product:1050671 RIDSECT FIK(SN357/3)600 ML.**อาบแล้ว**From: P01-PT907
+Time:2021-02-18 18:42:58 ICT
+Status:Downtime 0.00 hrs
+Product_Id:04.00: CC009312: F-52 SP-1: 7.5-8.5: 165/180/180 
+Product:1050671 RIDSECT FIK(SN357/3)600 ML.**อาบแล้ว**OFS Alert service test.OFS Alert service test.
