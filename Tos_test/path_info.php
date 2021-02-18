@@ -18,6 +18,7 @@ $json = json_decode($json, true);
 echo "countryId: ".$json['countryId']."<br/>";
 echo "productId: ".$json['productId']."<br/>";
 echo "status: ".$json['status']."<br/>";
+
 echo "**********************************************************<br/>";
 $url =  "https://www.preeyapong.com/PHP_webservice/Json.php";
 $obj = file_get_contents($url);
@@ -28,6 +29,15 @@ echo "c". $json2['c']."<br/>";
 echo "d". $json2['d']."<br/>";
 echo "e". $json2['e']."<br/>";
 
+echo "**********************************************************<br/>";
+$url3 =  "https://www.preeyapong.com/PHP_webservice/php_image_upload/getStarChatPrivateShop.php";
+$obj3 = file_get_contents($ur32);
+$json3 = json_decode($ob3,true);
+echo "id: ". $json3['id']."<br/>";
+echo "name: ". $json3['star_name']."<br/>";
+echo "image". $json3['image']."<br/>";
+
+echo "**********************************************************<br/>";
 echo"<br/>";
 echo "https://www.preeyapong.com/PHP_webservice/Chat_PHP_Realtime/test.php";
 //$req_body = json_decode($file_get_contents('php://input'));
