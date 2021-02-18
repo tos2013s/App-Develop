@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   //$WebParameter .= $_POST['message'];
   //$dataPOST = trim(file_get_contents('php://input'));
   //$xmlData = simplexml_load_string($dataPOST);
-  $WebParameter .= print_r($_POST);
+  $WebParameter .= $_SERVER['PATH_INFO']; //print_r($_POST);
 }
 else if ($_SERVER['REQUEST_METHOD'] == 'GET'){
   $WebParameter .= "GET\r\n";//$_GET['message']; 
