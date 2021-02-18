@@ -1,18 +1,21 @@
 <?php
-$dateData=time(); // วันเวลาขณะนั้น
+//$dateData=time(); // วันเวลาขณะนั้น
 //echo thai_date_and_time($dateData); // 19 ธันวาคม 2556 เวลา 10:17:48
+//$newDate = thai_date_and_time($dateData);
 
 $accToken = "UwJJvP1lFFwR4AIOg89RaeMMy440L8UbioXZ6c1QJu1";
 $sMessage = "\r\nรายงานสถานการณ์ โควิด-19\r\nAPI free Covid-19\r\n";
 $sMessage.="https://covid19.th-stat.com/th/api \r\n";
+
 //$jsonALL = file_get_contents("https://covid19.th-stat.com/api/open/today");
 //$jsonz = preg_replace('/\r|\n/','\n',trim($jsonALL));
 //$jsonData = json_decode($jsonz, TRUE);
 //$sMessage .=json_encode($jsonData, JSON_PRETTY_PRINT);
+
 $url =  "https://covid19.th-stat.com/api/open/today";  // API Convic-19 ToDay
 $obj = file_get_contents($url);
 $json = json_decode($obj,true);
-$sMessage.="Date: ".thai_date_and_time($dateData);
+$sMessage.= "Date: ".date("Y-m-d H:i:s");
 $sMessage.= "Confirmed: ". $json['Confirmed']."\r\n";
 $sMessage.= "Recovered: ". $json['Recovered']."\r\n";
 $sMessage.= "Hospitalized: ". $json['Hospitalized']."\r\n";
