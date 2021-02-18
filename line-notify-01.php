@@ -13,10 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   //$WebParameter .= $_POST['message'];
   //$dataPOST = trim(file_get_contents('php://input'));
   //$xmlData = simplexml_load_string($dataPOST);
-  $WebParameter .= $_SERVER['PATH_INFO']; //print_r($_POST);
-  $number = $_GET['From'];
-  $body = $_GET['Body'];
-  $WebParameter .= $_GET['msgid'];	
+  $WebParameter .= $_SERVER['PATH_INFO']; //print_r($_POST);	
 }
 else if ($_SERVER['REQUEST_METHOD'] == 'GET'){
   $WebParameter .= "GET\r\n";//$_GET['message']; 
@@ -32,8 +29,11 @@ $allHeaders = getallheaders();
 $contentType = $allHeaders['Content-Type'];
 
 //$sMessage .=$contentType;
+$sMessage .=$_GET['From'];
+$sMessage .=$_GET['Body'];
+$sMessage .=$_GET['msgid'];
 $sMessage .="\r\n";
-$sMessage .= $WebParameter;
+//$sMessage .= $WebParameter;
 
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
