@@ -14,8 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   //$dataPOST = trim(file_get_contents('php://input'));
   //$xmlData = simplexml_load_string($dataPOST);
   $WebParameter .= $_SERVER['PATH_INFO']; //print_r($_POST);
-  $WebParameter .= $number = $_POST['From'];
-  $WebParameter .=$body = $_POST['Body'];
+  $number = $_GET['From'];
+  $body = $_GET['Body'];
+  $WebParameter .= $_GET['msgid'];	
 }
 else if ($_SERVER['REQUEST_METHOD'] == 'GET'){
   $WebParameter .= "GET\r\n";//$_GET['message']; 
