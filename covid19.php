@@ -28,9 +28,9 @@ $sMessage.= "Deaths: ". $json['Deaths']."\r\n";
 $sMessage.= "NewConfirmed: ". $json['NewConfirmed']."\r\n";
 $sMessage.= "NewRecovered: ". $json['NewRecovered']."\r\n";
 $sMessage.= "NewHospitalized: ". $json['NewHospitalized']."\r\n";
-$sMessage.= "Source: www.covid19.th-stat.com/ \r\n";
-$sMessage.= "DevBy: www.kidkarnmai.com/\r\n";
-$sMessage.= "SeverBy: www.smilehost.asia/ \r\n";
+$sMessage.= "Source: https://covid19.th-stat.com// \r\n";
+$sMessage.= "DevBy: https://www.kidkarnmai.com//\r\n";
+$sMessage.= "SeverBy: https://smilehost.asia// \r\n";
 
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
