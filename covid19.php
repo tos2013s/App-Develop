@@ -1,4 +1,9 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+date_default_timezone_set("Asia/Bangkok");
+$date_now = date("Y-m-d H:i:s");
 //$dateData=time(); // วันเวลาขณะนั้น
 //echo thai_date_and_time($dateData); // 19 ธันวาคม 2556 เวลา 10:17:48
 //$newDate = thai_date_and_time($dateData);
@@ -15,7 +20,7 @@ $sMessage.="https://covid19.th-stat.com/th/api \r\n";
 $url =  "https://covid19.th-stat.com/api/open/today";  // API Convic-19 ToDay
 $obj = file_get_contents($url);
 $json = json_decode($obj,true);
-
+$sMessage.= "Date: ".$date_now."\r\n";
 $sMessage.= "Confirmed: ". $json['Confirmed']."\r\n";
 $sMessage.= "Recovered: ". $json['Recovered']."\r\n";
 $sMessage.= "Hospitalized: ". $json['Hospitalized']."\r\n";
