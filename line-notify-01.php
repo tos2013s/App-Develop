@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   //$WebParameter .= $_POST['message'];
   //$dataPOST = trim(file_get_contents('php://input'));
   //$xmlData = simplexml_load_string($dataPOST);
-  //$WebParameter .= $xmlData;
+  $WebParameter .= $_POST['msgid'];
 }
 else if ($_SERVER['REQUEST_METHOD'] == 'GET'){
   $WebParameter .= "GET\r\n";//$_GET['message']; 
@@ -28,7 +28,7 @@ else{
 $allHeaders = getallheaders();
 $contentType = $allHeaders['Content-Type'];
 
-$sMessage .=$contentType;
+//$sMessage .=$contentType;
 $sMessage .="\r\n";
 $sMessage .= $WebParameter;
 
