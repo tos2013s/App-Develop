@@ -29,9 +29,12 @@ $allHeaders = getallheaders();
 $contentType = $allHeaders['Content-Type'];
 
 //$sMessage .=$contentType;
-$sMessage .=$_GET['From'];
-$sMessage .=$_GET['Body'];
+
 $sMessage .=$_GET['msgid'];
+$sMessage .=$_GET['{{message}}'];
+
+$sMessage .=$_POST['msgid'];
+$sMessage .=$_POST['{{message}}'];
 $sMessage .="\r\n";
 //$sMessage .= $WebParameter;
 
