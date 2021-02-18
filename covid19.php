@@ -1,11 +1,25 @@
 <?php
 
 $accToken = "UwJJvP1lFFwR4AIOg89RaeMMy440L8UbioXZ6c1QJu1";
-
-$jsonALL = file_get_contents("https://covid19.th-stat.com/api/open/today");
-$jsonz = preg_replace('/\r|\n/','\n',trim($jsonALL));
-$jsonData = json_decode($jsonz, TRUE);
-$sMessage .=json_encode($jsonData, JSON_PRETTY_PRINT);
+$sMessage = "\r\nรายงานสถานการณ์ โควิด-19\r\nAPI free Covid-19\r\n";
+$sMessage.="https://covid19.th-stat.com/th/api \r\n";
+//$jsonALL = file_get_contents("https://covid19.th-stat.com/api/open/today");
+//$jsonz = preg_replace('/\r|\n/','\n',trim($jsonALL));
+//$jsonData = json_decode($jsonz, TRUE);
+//$sMessage .=json_encode($jsonData, JSON_PRETTY_PRINT);
+$url =  "https://covid19.th-stat.com/api/open/today";  // API Convic-19 ToDay
+$obj = file_get_contents($url);
+$json = json_decode($obj,true);
+$sMessage.= "Confirmed: ". $json['Confirmed']."\r\n";
+$sMessage.= "Recovered: ". $json['Recovered']."\r\n";
+$sMessage.= "Hospitalized: ". $json['Hospitalized']."\r\n";
+$sMessage.= "Deaths: ". $json['Deaths']."\r\n";
+$sMessage.= "NewConfirmed: ". $json['NewConfirmed']."\r\n";
+$sMessage.= "NewRecovered: ". $json['NewRecovered']."\r\n";
+$sMessage.= "NewHospitalized: ". $json['NewHospitalized']."\r\n";
+$sMessage.= "Source: https://covid19.th-stat.com/ \r\n";
+$sMessage.= "DevBy: https://www.kidkarnmai.com/\r\n";
+$sMessage.= "SeverBy: https://smilehost.asia/ \r\n";
 
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
