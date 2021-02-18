@@ -15,7 +15,7 @@ $sMessage.="https://covid19.th-stat.com/th/api \r\n";
 $url =  "https://covid19.th-stat.com/api/open/today";  // API Convic-19 ToDay
 $obj = file_get_contents($url);
 $json = json_decode($obj,true);
-$sMessage.= "Date: ".date("Y-m-d H:i:s");
+
 $sMessage.= "Confirmed: ". $json['Confirmed']."\r\n";
 $sMessage.= "Recovered: ". $json['Recovered']."\r\n";
 $sMessage.= "Hospitalized: ". $json['Hospitalized']."\r\n";
